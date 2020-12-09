@@ -1,0 +1,162 @@
+
+<!doctype html>
+<html lang="zxx">
+{% load static %}
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Home</title>
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'core/css/style-starter.css' %}">
+	<!-- Template CSS -->
+	<link href="//fonts.googleapis.com/css?family=Hind:400,500,600,700&display=swap" rel="stylesheet">
+	<!-- Template CSS -->
+
+</head>
+
+<body>
+	<!--/top-header-content-->
+	<div class="template">
+		<header id="site-header" class="fixed-top">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-dark stroke">
+					<a class="navbar-brand" href="index.html">
+						Paryatan
+					</a>
+					<button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
+						data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+						aria-label="Toggle navigation"><span class="navbar-toggler-icon fa fa-bars"> </span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item {{indexActive}}">
+								<a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span> </a>
+							</li>
+						
+							<li class="nav-item {{contactActive}}">
+								<a class="nav-link effect-3" href=" {% url 'contact' %} ">Contact </a>
+							</li>
+							<li class="nav-item {{registerActive}}">
+								<a class="nav-link effect-3" href=" {% url 'register' %} ">Register </a>
+							</li>
+							<li class="nav-item ">
+								<a class="nav-link effect-3" href="">Donate </a>
+							</li>
+							
+						</ul>
+
+					</div>
+				</nav>
+			</div>
+		</header>
+	</div>
+	<!--//top-header-content-->
+	<!--body content-->
+	
+
+{% block content %}
+{% endblock content %}
+
+
+	<!--// body content-->
+	<!-- footer -->
+	<footer class="w3l-footer-16">
+		<div class="footer-content py-lg-5 py-4 text-center">
+			<div class="container">
+				<div class="copy-right">
+					<h6>Designed by <a
+						href="#">Ravi Taak</a> </h6>
+					<ul class="footer-gd-16">
+						<li>© 2020 Paryatan. </li>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Donate</a></li>
+					</ul>
+				</div>
+				<button onclick="topFunction()" id="movetop" title="Go to top">
+					<span class="fa fa-angle-up"></span>
+				</button>
+			</div>
+		</div>
+
+		<!-- move top -->
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- //move top -->
+		<script>
+			$(function () {
+				$('.navbar-toggler').click(function () {
+					$('body').toggleClass('noscroll');
+				})
+			});
+		</script>
+	</footer>
+	<!-- //footer -->
+</body>
+
+</html>
+<script src=" {% static 'core/js/jquery-3.3.1.min.js' %} "></script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--//-->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!--/MENU-JS-->
+<script>
+	$(window).on("scroll", function () {
+		var scroll = $(window).scrollTop();
+
+		if (scroll >= 80) {
+			$("#site-header").addClass("nav-fixed");
+		} else {
+			$("#site-header").removeClass("nav-fixed");
+		}
+	});
+
+	//Main navigation Active Class Add Remove
+	$(".navbar-toggler").on("click", function () {
+		$("header").toggleClass("active");
+	});
+	$(document).on("ready", function () {
+		if ($(window).width() > 991) {
+			$("header").removeClass("active");
+		}
+		$(window).on("resize", function () {
+			if ($(window).width() > 991) {
+				$("header").removeClass("active");
+			}
+		});
+	});
+</script>
+<!--//MENU-JS-->
+<!-- /aos -->
+<script src=" {% static 'core/js/aos.js' %} "></script>
+<script src=" {% static 'core/js/aosindex.js' %} "></script>
+<!-- //aos -->
+
+<script src=" {% static 'core/js/bootstrap.min.js' %} "></script>
